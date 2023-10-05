@@ -16,6 +16,25 @@
 							"listen": "test",
 							"script": {
 								"exec": [
+									"pm.test(\"Status code should 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name should have string OK\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"console.log(jsonData);\r",
+									"console.log(jsonData.categories[2]);\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"scopes\");\r",
+									"});\r",
+									"pm.test(\"Confirm payment currency is EUR\", function () {\r",
+									"    \r",
+									"    pm.expect(jsonData.paymentCurrency).to.eql(\"EUR\");\r",
+									"});\r",
 									""
 								],
 								"type": "text/javascript"
