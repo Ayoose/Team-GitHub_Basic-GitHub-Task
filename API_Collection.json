@@ -333,6 +333,12 @@
 							"listen": "test",
 							"script": {
 								"exec": [
+									"const orderID = pm.response.json();\r",
+									"\r",
+									"console.log(orderID);\r",
+									"console.log(orderID.orderId);\r",
+									"\r",
+									"pm.environment.set(\"OrderID\", orderID.orderId);\r",
 									""
 								],
 								"type": "text/javascript"
@@ -345,7 +351,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "540bd43cf706368d43ecbfd49df5a059c92c9f3306de459bf39c3a29b96ebfe5",
+									"value": "def4abd103a75ab88d3f51ac60a7b93e293a70dcf16de6fc114836c44289ec3a",
 									"type": "string"
 								}
 							]
@@ -354,7 +360,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"bookId\": 1,\n    \"customerName\": \"Testify Academy\"\n}",
+							"raw": "{\n    \"bookId\": {{bookID}},\n    \"customerName\": \"Ayooluwa Egunjobi\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -525,7 +531,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "540bd43cf706368d43ecbfd49df5a059c92c9f3306de459bf39c3a29b96ebfe5",
+									"value": "def4abd103a75ab88d3f51ac60a7b93e293a70dcf16de6fc114836c44289ec3a",
 									"type": "string"
 								}
 							]
@@ -588,7 +594,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "540bd43cf706368d43ecbfd49df5a059c92c9f3306de459bf39c3a29b96ebfe5",
+									"value": "def4abd103a75ab88d3f51ac60a7b93e293a70dcf16de6fc114836c44289ec3a",
 									"type": "string"
 								}
 							]
@@ -619,7 +625,7 @@
 							"variable": [
 								{
 									"key": "orderId",
-									"value": "rObASEWYlVrRX6cTAEgbt"
+									"value": "{{OrderID}}"
 								}
 							]
 						}
